@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBFER Serralheria - Barras, Tubos e Vergalhões</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        steel: {
+                            50: '#f4f6f8',
+                            100: '#e4e8ec',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#090d16',
+                        },
+                        industrial: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-steel-950 text-slate-100 font-sans antialiased selection:bg-industrial-500 selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-steel-900 border-b border-steel-800 text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-6 text-slate-400">
+                <span><i class="fa-solid fa-id-card text-industrial-500 mr-1.5"></i> CNPJ: 50.326.473/0001-25</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-envelope text-industrial-500 mr-1.5"></i> jbferserralheria@outlook.com</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <span class="text-industrial-500 font-semibold"><i class="fa-solid fa-truck-fast mr-1"></i> Entregamos peças a partir de 6m</span>
+                <span class="text-slate-600">|</span>
+                <a href="#contato" class="hover:text-industrial-500 transition-colors">Fale Conosco</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-steel-900/90 backdrop-blur-md border-b border-steel-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-industrial-600 rounded-lg flex items-center justify-center text-white text-2xl font-black font-heading shadow-lg shadow-industrial-600/30 group-hover:bg-industrial-500 transition-all">
+                    JB
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold font-heading tracking-wider block text-white leading-none">JBFER</span>
+                    <span class="text-xs text-industrial-500 font-semibold tracking-widest uppercase block mt-1">Serralheria & Metais</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-300">
+                <a href="#produtos" class="hover:text-industrial-500 transition-colors">Produtos</a>
+                <a href="#diferenciais" class="hover:text-industrial-500 transition-colors">Diferenciais</a>
+                <a href="#sob-medida" class="hover:text-industrial-500 transition-colors">Trabalhos Especiais</a>
+                <a href="#contato" class="hover:text-industrial-500 transition-colors">Contato</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCartModal()" class="relative p-2.5 bg-steel-800 rounded-lg hover:bg-steel-700 transition-colors border border-steel-700 text-slate-200">
+                    <i class="fa-solid fa-calculator text-lg text-industrial-500"></i>
+                    <span class="sr-only">Orçamento</span>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-industrial-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-steel-900">0</span>
+                </button>
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20JBFER%20Serralheria%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2.5 rounded-lg transition-all shadow-md shadow-emerald-900/30">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-steel-900 overflow-hidden py-20 lg:py-28 border-b border-steel-800">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-industrial-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-industrial-500/10 border border-industrial-500/30 text-industrial-500 text-xs font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-shield-halved"></i> Qualidade Garantida & Soluções em Aço
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading text-white tracking-tight leading-tight">
+                        Soluções completas em <span class="text-transparent bg-clip-text bg-gradient-to-r from-industrial-500 to-amber-400">Barras, Tubos e Vergalhões</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed">
+                        Fornecemos todos os tipos de metais para serralherias, indústrias e construção civil. <strong>Vendas em barras padrão a partir de 6 metros</strong> e atendimento personalizado.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#produtos" class="bg-industrial-600 hover:bg-industrial-500 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-industrial-600/30 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-boxes-stacked"></i> Ver Catálogo de Produtos
+                        </a>
+                        <a href="#contato" class="bg-steel-800 hover:bg-steel-700 border border-steel-700 text-slate-200 font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats / Quick Info Box -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="bg-steel-800/80 backdrop-blur border border-steel-700 p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-industrial-500/20 text-industrial-500 rounded-xl flex items-center justify-center mx-auto mb-3 text-2xl">
+                            <i class="fa-solid fa-ruler-horizontal"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-white font-heading">6 Metros</h3>
+                        <p class="text-slate-400 text-sm mt-1">Barras em comprimento padrão comercial</p>
+                    </div>
+                    <div class="bg-steel-800/80 backdrop-blur border border-steel-700 p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-industrial-500/20 text-industrial-500 rounded-xl flex items-center justify-center mx-auto mb-3 text-2xl">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-white font-heading">100%</h3>
+                        <p class="text-slate-400 text-sm mt-1">Variedade de Perfis e Ligas Metálicas</p>
+                    </div>
+                    <div class="bg-steel-800/80 backdrop-blur border border-steel-700 p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-industrial-500/20 text-industrial-500 rounded-xl flex items-center justify-center mx-auto mb-3 text-2xl">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-white font-heading">Agilidade</h3>
+                        <p class="text-slate-400 text-sm mt-1">Entrega rápida para toda a região</p>
+                    </div>
+                    <div class="bg-steel-800/80 backdrop-blur border border-steel-700 p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 bg-industrial-500/20 text-industrial-500 rounded-xl flex items-center justify-center mx-auto mb-3 text-2xl">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-white font-heading">Garantia</h3>
+                        <p class="text-slate-400 text-sm mt-1">Produtos com certificação de procedência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog / Products Section -->
+    <section id="produtos" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Nosso Catálogo de Produtos</h2>
+                <p class="text-slate-400 mt-2">Navegue pelas nossas opções de barras, tubos e vergalhões para sua obra ou oficina.</p>
+            </div>
+            
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap gap-2 bg-steel-900 p-1.5 rounded-xl border border-steel-800">
+                <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-industrial-600 text-white" data-category="all">Todos</button>
+                <button onclick="filterProducts('barras')" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-400 hover:text-white" data-category="barras">Barras</button>
+                <button onclick="filterProducts('tubos')" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-400 hover:text-white" data-category="tubos">Tubos</button>
+                <button onclick="filterProducts('vergalhoes')" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-400 hover:text-white" data-category="vergalhoes">Vergalhões</button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Injection via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Differentials Section -->
+    <section id="diferenciais" class="py-16 bg-steel-900 border-y border-steel-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold font-heading text-white">Por que escolher a JBFER Serralheria?</h2>
+                <p class="text-slate-400 mt-3">Trabalhamos com alto padrão de qualidade para atender serralheiros, construtoras e clientes finais.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-steel-950 p-8 rounded-2xl border border-steel-800 hover:border-industrial-500/50 transition-all group">
+                    <div class="w-14 h-14 bg-industrial-600/10 text-industrial-500 rounded-xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-industrial-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Todos os Tipos de Metal</h3>
+                    <p class="text-slate-400 leading-relaxed">Trabalhamos com Aço Carbono, Galvano, Alumínio, Inox e Perfis Especiais para atender qualquer especificação de projeto.</p>
+                </div>
+
+                <div class="bg-steel-950 p-8 rounded-2xl border border-steel-800 hover:border-industrial-500/50 transition-all group">
+                    <div class="w-14 h-14 bg-industrial-600/10 text-industrial-500 rounded-xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-industrial-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Barras a partir de 6 Metros</h3>
+                    <p class="text-slate-400 leading-relaxed">Fornecemos material em tamanhos padrão de fábrica (6m), garantindo menor desperdício e melhor aproveitamento na sua produção.</p>
+                </div>
+
+                <div class="bg-steel-950 p-8 rounded-2xl border border-steel-800 hover:border-industrial-500/50 transition-all group">
+                    <div class="w-14 h-14 bg-industrial-600/10 text-industrial-500 rounded-xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-industrial-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-comments-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Orçamento Rápido e Direto</h3>
+                    <p class="text-slate-400 leading-relaxed">Faça sua cotação online e envie diretamente para nosso atendimento no WhatsApp ou E-mail com respostas em poucos minutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Works Banner -->
+    <section id="sob-medida" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-industrial-700 to-industrial-600 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-white">
+                <i class="fa-solid fa-hammer text-[240px]"></i>
+            </div>
+            <div class="max-w-2xl relative z-10">
+                <span class="bg-black/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-4">Serviços Especiais</span>
+                <h2 class="text-3xl sm:text-4xl font-black font-heading text-white mb-4">Precisa de cortes específicos ou estruturas sob medida?</h2>
+                <p class="text-white/90 text-lg mb-8">Além do fornecimento de barras inteiras de 6m, nossa equipe técnica está pronta para fabricar e preparar peças de acordo com a necessidade do seu projeto.</p>
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20um%20servi%C3%A7o%20sob%20medida." target="_blank" class="bg-steel-950 hover:bg-steel-900 text-white font-bold px-8 py-4 rounded-xl transition-all inline-flex items-center gap-3 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i> Falar com um Especialista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & CNPJ Section -->
+    <section id="contato" class="py-20 bg-steel-900 border-t border-steel-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <h2 class="text-3xl font-extrabold font-heading text-white">Fale Conosco</h2>
+                        <p class="text-slate-400 mt-2">Estamos prontos para atender seu pedido com eficiência e transparência.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-steel-800 rounded-xl flex items-center justify-center text-industrial-500 text-xl border border-steel-700 shrink-0">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Razão Social & Identificação</h4>
+                                <p class="text-slate-400 text-sm mt-1">JBFER Serralheria</p>
+                                <p class="text-slate-400 text-sm">CNPJ: 50.326.473/0001-25</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-steel-800 rounded-xl flex items-center justify-center text-industrial-500 text-xl border border-steel-700 shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">E-mail Comercial</h4>
+                                <p class="text-slate-400 text-sm mt-1">jbferserralheria@outlook.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-steel-800 rounded-xl flex items-center justify-center text-industrial-500 text-xl border border-steel-700 shrink-0">
+                                <i class="fa-solid fa-truck"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Atendimento e Entregas</h4>
+                                <p class="text-slate-400 text-sm mt-1">Vendas presenciais e faturamento para empresas.</p>
+                                <p class="text-industrial-500 text-sm font-semibold mt-1">Barras a partir de 6 metros disponíveis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Contact Form -->
+                <div class="lg:col-span-7 bg-steel-950 p-8 rounded-3xl border border-steel-800">
+                    <h3 class="text-xl font-bold text-white mb-6">Envie uma Mensagem Direta</h3>
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Seu Nome</label>
+                                <input type="text" required placeholder="Digite seu nome" class="w-full bg-steel-900 border border-steel-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-industrial-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Telefone / WhatsApp</label>
+                                <input type="tel" required placeholder="(00) 00000-0000" class="w-full bg-steel-900 border border-steel-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-industrial-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Seu E-mail</label>
+                            <input type="email" required placeholder="exemplo@email.com" class="w-full bg-steel-900 border border-steel-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-industrial-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Descrição da sua Necessidade</label>
+                            <textarea rows="4" required placeholder="Informe as medidas, quantidade de barras (6m) ou materiais que precisa..." class="w-full bg-steel-900 border border-steel-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-industrial-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-industrial-600 hover:bg-industrial-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-industrial-600/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-steel-950 border-t border-steel-900 py-10 text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <p>&copy; <span id="year"></span> JBFER Serralheria. CNPJ: 50.326.473/0001-25. Todos os direitos reservados.</p>
+            <p class="mt-4 sm:mt-0 text-slate-600">Hospedado via GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- Cart / Budget Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-steel-900 border border-steel-800 w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="flex items-center justify-between pb-4 border-b border-steel-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-industrial-600/20 text-industrial-500 rounded-lg flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Lista de Orçamento</h3>
+                        <p class="text-xs text-slate-400">Peças em barras padrão a partir de 6 metros</p>
+                    </div>
+                </div>
+                <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white p-2 text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items list -->
+            <div id="cart-items" class="py-4 overflow-y-auto flex-1 divide-y divide-steel-800">
+                <!-- Injected via JS -->
+            </div>
+
+            <div class="pt-4 border-t border-steel-800 space-y-4">
+                <div class="flex justify-between items-center text-sm font-semibold text-slate-300">
+                    <span>Total de itens selecionados:</span>
+                    <span id="cart-total-items" class="text-industrial-500 font-bold text-lg">0</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button onclick="sendBudgetWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Orçar no WhatsApp
+                    </button>
+                    <button onclick="sendBudgetEmail()" class="w-full bg-industrial-600 hover:bg-industrial-500 text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> Orçar por E-mail
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        // Sample Products Database
+        const products = [
+            {
+                id: 'bar-01',
+                name: 'Barra Chata de Aço',
+                category: 'barras',
+                specs: 'Diversas espessuras e widths',
+                metal: 'Aço Carbono / Galvanizado',
+                length: '6 metros',
+                icon: 'fa-vector-square'
+            },
+            {
+                id: 'bar-02',
+                name: 'Barra Quadrada Maciça',
+                category: 'barras',
+                specs: ' Bitolas de 3/8" a 2"',
+                metal: 'Aço Laminado',
+                length: '6 metros',
+                icon: 'fa-square'
+            },
+            {
+                id: 'bar-03',
+                name: 'Cantoneira em L',
+                category: 'barras',
+                specs: 'Abas iguais e desiguais',
+                metal: 'Aço / Alumínio',
+                length: '6 metros',
+                icon: 'fa-play'
+            },
+            {
+                id: 'tub-01',
+                name: 'Tubo Metalon Quadrado',
+                category: 'tubos',
+                specs: '20x20mm até 100x100mm',
+                metal: 'Aço Preto ou Galvanizado',
+                length: '6 metros',
+                icon: 'fa-cube'
+            },
+            {
+                id: 'tub-02',
+                name: 'Tubo Redondo Industrial',
+                category: 'tubos',
+                specs: 'Com ou sem costura',
+                metal: 'Aço / Inox',
+                length: '6 metros',
+                icon: 'fa-circle-notch'
+            },
+            {
+                id: 'tub-03',
+                name: 'Tubo Retangular',
+                category: 'tubos',
+                specs: '30x20mm até 150x50mm',
+                metal: 'Aço Carbono',
+                length: '6 metros',
+                icon: 'fa-shapes'
+            },
+            {
+                id: 'verg-01',
+                name: 'Vergalhão CA-50',
+                category: 'vergalhoes',
+                specs: 'Nervurado para construção',
+                metal: 'Aço CA-50',
+                length: '6 ou 12 metros',
+                icon: 'fa-grip-lines-vertical'
+            },
+            {
+                id: 'verg-02',
+                name: 'Vergalhão Redondo Liso',
+                category: 'vergalhoes',
+                specs: 'Maciço para serralheria',
+                metal: 'Aço Carbono',
+                length: '6 metros',
+                icon: 'fa-minus'
+            },
+            {
+                id: 'bar-04',
+                name: 'Perfil U Estrutural',
+                category: 'barras',
+                specs: 'Várias polegadas e bitolas',
+                metal: 'Aço Gerdau/CSN',
+                length: '6 metros',
+                icon: 'fa-border-style'
+            }
+        ];
+
+        let cart = [];
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            renderProducts(products);
+        });
+
+        // Render Products to DOM
+        function renderProducts(items) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'bg-steel-900 border border-steel-800 rounded-2xl p-6 flex flex-col justify-between hover:border-industrial-500/50 transition-all';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-steel-800 text-industrial-500 rounded-xl flex items-center justify-center text-xl border border-steel-700">
+                                <i class="fa-solid ${product.icon}"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2.5 py-1 bg-steel-800 text-slate-300 rounded-full border border-steel-700">
+                                Barra de ${product.length}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">${product.name}</h3>
+                        <div class="space-y-1.5 text-xs text-slate-400 mb-6">
+                            <p><strong class="text-slate-300">Medidas/Especificação:</strong> ${product.specs}</p>
+                            <p><strong class="text-slate-300">Material/Liga:</strong> ${product.metal}</p>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('${product.id}')" class="w-full bg-steel-800 hover:bg-industrial-600 text-slate-200 hover:text-white font-semibold py-3 rounded-xl transition-all border border-steel-700 hover:border-industrial-500 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-plus text-sm"></i> Adicionar ao Orçamento
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Functionality
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.add('bg-industrial-600', 'text-white');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('bg-industrial-600', 'text-white');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Cart Logic
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const totalCountEl = document.getElementById('cart-total-items');
+            const listEl = document.getElementById('cart-items');
+
+            const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+            countEl.textContent = totalItems;
+            totalCountEl.textContent = totalItems;
+
+            if (cart.length === 0) {
+                listEl.innerHTML = `
+                    <div class="text-center py-12 text-slate-500">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
+                        <p>Nenhum produto adicionado à sua lista de orçamento.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            listEl.innerHTML = '';
+            cart.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'py-4 flex items-center justify-between gap-4';
+                row.innerHTML = `
+                    <div>
+                        <h4 class="text-white font-bold text-sm sm:text-base">${item.name}</h4>
+                        <p class="text-xs text-slate-400">Padrão: ${item.length} | ${item.metal}</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex items-center bg-steel-950 border border-steel-800 rounded-lg">
+                            <button onclick="updateQuantity('${item.id}', -1)" class="px-2.5 py-1 text-slate-400 hover:text-white">-</button>
+                            <span class="px-3 text-sm font-bold text-white">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}', 1)" class="px-2.5 py-1 text-slate-400 hover:text-white">+</button>
+                        </div>
+                        <button onclick="removeFromCart('${item.id}')" class="text-rose-500 hover:text-rose-400 p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+                listEl.appendChild(row);
+            });
+        }
+
+        function toggleCartModal(show = null) {
+            const modal = document.getElementById('cart-modal');
+            if (show === true) {
+                modal.classList.remove('hidden');
+            } else if (show === false) {
+                modal.classList.add('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // WhatsApp Budget Send
+        function sendBudgetWhatsApp() {
+            if (cart.length === 0) {
+                alert('Sua lista de orçamento está vazia!');
+                return;
+            }
+
+            let message = "Ol%C3%A1%20JBFER%20Serralheria!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20os%20seguintes%20itens:%0A%0A";
+            cart.forEach(item => {
+                message += `%E2%80%A2%20*${item.name}*%20(Barra%206m)%20-%20Qtd:%20${item.quantity}%0A`;
+            });
+
+            message += "%0A*CNPJ%20Or%C3%A7amento*%20|%20Vim%20pelo%20site.";
+            window.open(`https://wa.me/5511999999999?text=${message}`, '_blank');
+        }
+
+        // Email Budget Send
+        function sendBudgetEmail() {
+            if (cart.length === 0) {
+                alert('Sua lista de orçamento está vazia!');
+                return;
+            }
+
+            let body = "Olá JBFER Serralheria,\n\nGostaria de solicitar cotação dos itens abaixo:\n\n";
+            cart.forEach(item => {
+                body += `- ${item.name} (Barra de ${item.length}) | Quantidade: ${item.quantity}\n`;
+            });
+            body += "\nAguardo retorno com preços e condições de pagamento.";
+
+            const mailtoUrl = `mailto:jbferserralheria@outlook.com?subject=Orçamento de Produtos - Site JBFER&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+        }
+
+        // Form Submit
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const inputs = event.target.querySelectorAll('input, textarea');
+            const nome = inputs[0].value;
+            const telefone = inputs[1].value;
+            const email = inputs[2].value;
+            const mensagem = inputs[3].value;
+
+            const text = `Ol%C3%A1,%20meu%20nome%20%C3%A9%20*${encodeURIComponent(nome)}*%0A*Telefone:*%20${encodeURIComponent(telefone)}%0A*E-mail:*%20${encodeURIComponent(email)}%0A%0A*Mensagem:*%20${encodeURIComponent(mensagem)}`;
+            
+            window.open(`https://wa.me/5511999999999?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
